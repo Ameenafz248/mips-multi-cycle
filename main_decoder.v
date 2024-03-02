@@ -22,7 +22,6 @@ always @(posedge clk) begin
     else begin
       state <= next_state;
     end
-    $display("%d", state);
 end
 
 

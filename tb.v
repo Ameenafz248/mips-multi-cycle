@@ -8,7 +8,6 @@ wire memwrite;
 top dut(clk, reset, writedata, memaddr, memwrite, readdata, instr);// initialize test
 initial
 begin
-$monitor("%t %b readdata: %h  memaddr: %h instr: %h", $time, clk, readdata, memaddr, instr);
 reset <= 1; # 15; reset <= 0;
 end
 // generate clock to sequence tests

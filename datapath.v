@@ -42,8 +42,5 @@ module datapath(input clk, reset,
 
     mux2 #(64) mux_nextpc(ALUResult, ALUOut, PCSrc, nextpc);
 
-    always @(posedge clk) begin
-        $display("%t pc: %d", $time, pc);
-    end
     
 endmodule
