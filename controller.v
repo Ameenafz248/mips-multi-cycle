@@ -1,6 +1,6 @@
 module controller(input clk, reset, zero, 
                   input [5:0] op, funct, 
-                  output PCEn, IorD, MemWirte, IRWrite,  PCWrite, MemtoReg, RegDst, branch, PCSrc, ALUSrcA, RegWrite,
+                  output PCEn, IorD, MemWrite, IRWrite,  PCWrite, MemtoReg, RegDst, branch, PCSrc, ALUSrcA, RegWrite,
                   output [2:0] ALUControl, 
                   output [1:0] ALUSrcB
                 );

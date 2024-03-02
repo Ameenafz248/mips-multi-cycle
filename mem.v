@@ -8,6 +8,7 @@ module mem(input clk, we, input [63:0] a, wd, output [63:0] rd);
 
     always @(posedge clk) begin
         if (we) begin
+            $display("%t writedata: %d address: %h", $time, wd, a);
             MEM[a[63:3]] = wd;
         end
         $writememh("/home/ameenafz248/dev/mips-multi-cycle/data.txt", MEM, 0, 63);

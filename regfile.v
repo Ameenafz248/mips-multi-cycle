@@ -6,7 +6,6 @@ module regfile(input clk, we3,
     reg [63:0] REG [31:0];
     always @(posedge clk) begin
         if (we3) begin
-            $display("regW: %d", wa3);
             REG[wa3] <= wd3;
         end
     end

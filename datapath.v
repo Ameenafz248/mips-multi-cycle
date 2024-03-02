@@ -23,7 +23,7 @@ module datapath(input clk, reset,
     regfile rf(.clk(clk), .we3(RegWrite), .ra1(instr[25:21]), .ra2(instr[20:16]), .wa3(a3), .wd3(wd3), .rd1(rd1), .rd2(rd2));
 
     dff #(64) A_reg(clk, rd1, A);
-    dff #(64) B_reg(clk, rd1, B);
+    dff #(64) B_reg(clk, rd2, B);
     assign writedata = B;
 
     mux2 #(64) mux_srcA(pc, A, ALUSrcA, SrcA);
@@ -42,7 +42,7 @@ module datapath(input clk, reset,
 
     mux2 #(64) mux_nextpc(ALUResult, ALUOut, PCSrc, nextpc);
 
-    always @(pc) begin
+    always @(posedge clk) begin
         $display("%t pc: %d", $time, pc);
     end
     

@@ -1,2 +1,10 @@
 docs
+db/
+incremental_db/
+mips-multi-cycle.qpf
+mips-multi-cycle.qsf
+output_files/
+simulation/
+top.qsf
+top_nativelink_simulation.rpt
 out

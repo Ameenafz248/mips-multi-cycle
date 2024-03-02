@@ -22,11 +22,11 @@ always @(posedge clk) begin
     else begin
       state <= next_state;
     end
+    $display("%d", state);
 end
 
 
-always @(posedge clk) begin
-    $display("%d", state);
+always @(*) begin
     case (state)
         S0: begin
             IorD <= 1'b0;
@@ -36,6 +36,8 @@ always @(posedge clk) begin
             PCSrc <= 1'b0;
             IRWrite <= 1'b1;
             PCWrite <= 1'b1;
+            RegWrite <= 1'b0;
+            MemWrite <= 1'b0;
         end
         S1: begin
             ALUSrcA <= 1'b0;
@@ -93,7 +95,7 @@ end
 
 
 // finding next state
-always @(state) begin
+always @(state or op) begin
     next_state = S0;
     case (state) 
         S0: 
@@ -141,6 +143,4 @@ always @(state) begin
             next_state = 6'bxxxxxx;
     endcase
 end
-
-
 endmodule

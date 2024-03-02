@@ -17,6 +17,17 @@ begin
 clk <= 1; # 5; clk <= 0; # 5;
 end
 // check results
+initial begin
+    #2000 $finish;
+end
 initial
-    #200 $finish;
+begin
+    #20;
+    forever begin
+        #10;
+        if (instr == 64'b0 && !reset) begin
+            $finish;
+        end
+    end
+end
 endmodule
