@@ -1,14 +1,12 @@
 module mips(input clk, reset, 
-            output [63:0] pc,
-            input [31:0] instr,
             output MemWrite,
-            output [63:0] aluout, writedata,
+            output [63:0] memaddr, writedata, instr,
             input [63:0] readdata
             );
         
         wire zero, MemtoReg, ALUSrc, PCSrc, RegDst, RegWrite;
         wire [2:0] ALUControl;
-        controller c(.op(instr[31:26]), .func(instr[5:0]), .zero(zero), .MemtoReg(MemtoReg), .MemWrite(MemWrite), .ALUSrc(ALUSrc),
-        .PCSrc(PCSrc), .RegDst(RegDst), .RegWrite(RegWrite), .ALUControl(ALUControl));
-        datapath d(clk, reset, MemtoReg, PCSrc, ALUSrc, RegDst, RegWrite, ALUControl, readdata, instr, zero, pc, aluout, writedata);
+        wire [1:0] ALUSrcB;
+        controller c(clk, reset, zero, instr[31:26], instr[5:0], PCEn, IorD, MemWirte, IRWrite, PCWrite, MemtoReg, RegDst, Branch, PCSrc,  ALUSrcA, RegWrite, ALUControl, ALUSrcB);
+        datapath d(clk, reset, PCEn, IorD, MemWrite, IRWrite, PCWrite, MemtoReg, RegDst, Branch, PCSrc, ALUControl, ALUSrcB, ALUSrcA, RegWrite, readdata, instr, zero, writedata, memaddr);
 endmodule

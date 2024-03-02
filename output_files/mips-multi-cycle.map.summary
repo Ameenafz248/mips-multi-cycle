@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Fri Mar  1 08:12:40 2024
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : mips-multi-cycle
+Top-level Entity Name : top
+Family : MAX 10
+Total logic elements : 195
+    Total combinational functions : 136
+    Dedicated logic registers : 126
+Total registers : 126
+Total pins : 195
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

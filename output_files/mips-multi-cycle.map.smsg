@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at datapath.v(39): always construct contains both blocking and non-blocking assignments File: /home/ameenafz248/dev/mips-multi-cycle/datapath.v Line: 39

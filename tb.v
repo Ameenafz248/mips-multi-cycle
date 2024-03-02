@@ -1,18 +1,15 @@
-module testbenchv1;
+module tb;
 reg clk;
 reg reset;
 integer i;
-wire [63:0] writedata, dataadr;
+wire [63:0] writedata, memaddr, readdata, instr;
 wire memwrite;
 // instantiate device to be tested
-top dut(clk, reset, writedata, dataadr, memwrite);
-// initialize test
-// initial begin
-//     $monitor("instr: %h", instr);
-// end
+top dut(clk, reset, writedata, memaddr, memwrite, readdata, instr);// initialize test
 initial
 begin
-reset <= 1; # 22; reset <= 0;
+$monitor("%t %b readdata: %h  memaddr: %h instr: %h", $time, clk, readdata, memaddr, instr);
+reset <= 1; # 15; reset <= 0;
 end
 // generate clock to sequence tests
 always
@@ -20,15 +17,6 @@ begin
 clk <= 1; # 5; clk <= 0; # 5;
 end
 // check results
-always @ (negedge clk)begin
-if (memwrite) begin
-if (dataadr === 20 && writedata === 1000) begin
-$display ("Simulation succeeded");
-$stop;
-end else if (dataadr !== 80) begin
-$display ("Failed hehe %h and %h",writedata,dataadr);
-$finish;
-end
-end
-end
+initial
+    #200 $finish;
 endmodule
