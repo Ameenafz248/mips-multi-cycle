@@ -10,6 +10,9 @@ module alu ( input [63:0] in1, in2, input [2:0] ALUControl,
         else begin
             out <= in1 - in2;
         end
+//        $display("%h %h %h", in1, in2, out);
     end
+    
+
 
 endmodule

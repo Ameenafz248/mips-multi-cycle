@@ -1,8 +1,7 @@
 docs
 db/
 incremental_db/
-mips-multi-cycle.qpf
-mips-multi-cycle.qsf
+mips-multi-cycle.q*
 output_files/
 simulation/
 top.qsf
